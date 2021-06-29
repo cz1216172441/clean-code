@@ -8,5 +8,5 @@
 * 重命名`OrderItem`中的方法名`totalAmount`为`getTotalAmount`，因为方法是一种行为，而不是属性，提高了可读性。
 * 移除`OrderReceipt`中被注释掉的代码，避免阅读代码时受到影响。
 * 将`OrderReceipt`中打印客户信息部分抽成`Order`中的获取用户信息方法`getCustomerInformation`，提高了可读性。
-* 将逐个打印订单项的方法抽到订单中，它是订单的一种行为，提高了可读性，同时方便代码扩展。
-
+* 将逐个打印订单项的方法`printOrderItems`抽到订单中，它是订单的一种行为，提高了可读性，同时方便代码扩展。
+* 抽出计算营业税的方法`calculateTotalSalesTax`到订单中，它是订单的一种行为，提高了可读性，同时方便代码扩展。

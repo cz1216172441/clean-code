@@ -33,4 +33,11 @@ public class Order {
     public String printOrderItems() {
         return getOrderItems().stream().map(OrderItem::print).collect(Collectors.joining("\n"));
     }
+
+    public double calculateTotalSalesTax() {
+        return getOrderItems().stream()
+                .map(orderItem -> orderItem.getTotalAmount() * .10)
+                .reduce(Double::sum)
+                .orElse(0d);
+    }
 }
