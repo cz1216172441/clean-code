@@ -21,26 +21,26 @@ public class OrderReceipt {
         output.append("======Printing Orders======\n");
 
         output.append(o.getCustomerInformation());
+        output.append(o.printOrderItems());
+        output.append('\n');
 
         // prints lineItems
-        double totSalesTx = 0d;
-        double tot = 0d;
-        for (OrderItem orderItem : o.getLineItems()) {
-            output.append(orderItem.print());
-
+        double totalSalesTax = 0d;
+        double totalOrderAmount = 0d;
+        for (OrderItem orderItem : o.getOrderItems()) {
             // calculate sales tax @ rate of 10%
             double salesTax = orderItem.getTotalAmount() * .10;
-            totSalesTx += salesTax;
+            totalSalesTax += salesTax;
 
             // calculate total amount of lineItem = price * quantity + 10 % sales tax
-            tot += orderItem.getTotalAmount() + salesTax;
+            totalOrderAmount += orderItem.getTotalAmount() + salesTax;
         }
 
         // prints the state tax
-        output.append("Sales Tax").append('\t').append(totSalesTx);
+        output.append("Sales Tax").append('\t').append(totalSalesTax);
 
         // print total amount
-        output.append("Total Amount").append('\t').append(tot);
+        output.append("Total Amount").append('\t').append(totalOrderAmount);
         return output.toString();
     }
 }

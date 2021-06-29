@@ -29,6 +29,6 @@ public class OrderItem {
     }
 
     public String print() {
-        return String.format("%s\t%s\t%d\t%s\n", getDescription(), getPrice(), getQuantity(), getTotalAmount());
+        return String.format("%s\t%s\t%d\t%s", getDescription(), getPrice(), getQuantity(), getTotalAmount());
     }
 }
