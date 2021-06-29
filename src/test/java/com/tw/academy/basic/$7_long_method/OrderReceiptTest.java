@@ -11,7 +11,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class OrderReceiptTest {
     @Test
     public void should_print_customer_information_on_order() {
-        Order order = new Order("Mr X", "Chicago, 60601", new ArrayList<LineItem>());
+        Order order = new Order("Mr X", "Chicago, 60601", new ArrayList<OrderItem>());
         OrderReceipt receipt = new OrderReceipt(order);
 
         String output = receipt.print();
@@ -21,12 +21,12 @@ public class OrderReceiptTest {
 
     @Test
     public void should_print_line_item_and_sales_tax_information() {
-        ArrayList<LineItem> lineItems = new ArrayList<LineItem>() {{
-            add(new LineItem("milk", 10.0, 2));
-            add(new LineItem("biscuits", 5.0, 5));
-            add(new LineItem("chocolate", 20.0, 1));
+        ArrayList<OrderItem> orderItems = new ArrayList<OrderItem>() {{
+            add(new OrderItem("milk", 10.0, 2));
+            add(new OrderItem("biscuits", 5.0, 5));
+            add(new OrderItem("chocolate", 20.0, 1));
         }};
-        OrderReceipt receipt = new OrderReceipt(new Order(null, null, lineItems));
+        OrderReceipt receipt = new OrderReceipt(new Order(null, null, orderItems));
 
         String output = receipt.print();
 

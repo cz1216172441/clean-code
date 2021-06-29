@@ -29,15 +29,15 @@ public class OrderReceipt {
         // prints lineItems
         double totSalesTx = 0d;
         double tot = 0d;
-        for (LineItem lineItem : o.getLineItems()) {
-            output.append(lineItem.print());
+        for (OrderItem orderItem : o.getLineItems()) {
+            output.append(orderItem.print());
 
             // calculate sales tax @ rate of 10%
-            double salesTax = lineItem.totalAmount() * .10;
+            double salesTax = orderItem.getTotalAmount() * .10;
             totSalesTx += salesTax;
 
             // calculate total amount of lineItem = price * quantity + 10 % sales tax
-            tot += lineItem.totalAmount() + salesTax;
+            tot += orderItem.getTotalAmount() + salesTax;
         }
 
         // prints the state tax
