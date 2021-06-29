@@ -40,4 +40,12 @@ public class Order {
                 .reduce(Double::sum)
                 .orElse(0d);
     }
+
+    public double calculateTotalOrderAmount() {
+        double totalAmount = getOrderItems().stream()
+                .map(OrderItem::getTotalAmount)
+                .reduce(Double::sum)
+                .orElse(0d);
+        return totalAmount + calculateTotalSalesTax();
+    }
 }

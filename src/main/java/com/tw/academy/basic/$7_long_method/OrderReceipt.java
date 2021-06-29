@@ -8,37 +8,20 @@ package com.tw.academy.basic.$7_long_method;
  * @since 2018-1-1
  */
 public class OrderReceipt {
-    private final Order o;
+    private final Order order;
 
-    public OrderReceipt(Order o) {
-        this.o = o;
+    public OrderReceipt(Order order) {
+        this.order = order;
     }
 
     public String print() {
         StringBuilder output = new StringBuilder();
-
-        // print headers
         output.append("======Printing Orders======\n");
-
-        output.append(o.getCustomerInformation());
-        output.append(o.printOrderItems());
+        output.append(order.getCustomerInformation());
+        output.append(order.printOrderItems());
         output.append('\n');
-
-        // prints lineItems
-        double totalOrderAmount = 0d;
-        for (OrderItem orderItem : o.getOrderItems()) {
-            // calculate sales tax @ rate of 10%
-            double salesTax = orderItem.getTotalAmount() * .10;
-
-            // calculate total amount of lineItem = price * quantity + 10 % sales tax
-            totalOrderAmount += orderItem.getTotalAmount() + salesTax;
-        }
-
-        // prints the state tax
-        output.append("Sales Tax").append('\t').append(o.calculateTotalSalesTax());
-
-        // print total amount
-        output.append("Total Amount").append('\t').append(totalOrderAmount);
+        output.append("Sales Tax").append('\t').append(order.calculateTotalSalesTax());
+        output.append("Total Amount").append('\t').append(order.calculateTotalOrderAmount());
         return output.toString();
     }
 }
