@@ -11,4 +11,5 @@
 * 将逐个打印订单项的方法`printOrderItems`抽到订单中，它是订单的一种行为，提高了可读性，同时方便代码扩展。
 * 抽出计算营业税的方法`calculateTotalSalesTax`到订单中，它是订单的一种行为，提高了可读性，同时方便代码扩展。
 * 抽出计算订单总金额的方法`calculateTotalOrderAmount`到订单中，它是订单的一种行为，提高了可读性，同时方便代码扩展。
+* 抽出打印订单营业税和订单总金额的方法`printOrderSalesTax`，`printOrderTotalAmount`到订单收据中，它们是订单收据的一种行为，提高了可读性，同时方便代码扩展。
 

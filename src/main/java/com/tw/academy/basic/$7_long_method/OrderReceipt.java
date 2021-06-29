@@ -20,8 +20,16 @@ public class OrderReceipt {
         output.append(order.getCustomerInformation());
         output.append(order.printOrderItems());
         output.append('\n');
-        output.append("Sales Tax").append('\t').append(order.calculateTotalSalesTax());
-        output.append("Total Amount").append('\t').append(order.calculateTotalOrderAmount());
+        output.append(printOrderSalesTax());
+        output.append(printOrderTotalAmount());
         return output.toString();
+    }
+
+    private String printOrderSalesTax() {
+        return String.format("Sales Tax\t%s", order.calculateTotalSalesTax());
+    }
+
+    private String printOrderTotalAmount() {
+        return String.format("Total Amount\t%s", order.calculateTotalOrderAmount());
     }
 }
