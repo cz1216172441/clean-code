@@ -3,9 +3,9 @@ package com.tw.academy.basic.$7_long_method;
 /**
  * This class is a example for bad smell;
  *
- * @author  Thoughtworks
+ * @author Thoughtworks
  * @version 1.0
- * @since   2018-1-1
+ * @since 2018-1-1
  */
 public class OrderReceipt {
     private final Order o;
@@ -20,9 +20,7 @@ public class OrderReceipt {
         // print headers
         output.append("======Printing Orders======\n");
 
-        // print date, bill no, customer name
-        output.append(o.getCustomerName());
-        output.append(o.getCustomerAddress());
+        output.append(o.getCustomerInformation());
 
         // prints lineItems
         double totSalesTx = 0d;
