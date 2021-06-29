@@ -4,13 +4,16 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Order {
-    String customerName;
-    String address;
-    List<OrderItem> orderItems;
 
-    public Order(String customerName, String address, List<OrderItem> orderItems) {
+    private final double taxRate = 0.1;
+
+    private final String customerName;
+    private final String receiverAddress;
+    private final List<OrderItem> orderItems;
+
+    public Order(String customerName, String receiverAddress, List<OrderItem> orderItems) {
         this.customerName = customerName;
-        this.address = address;
+        this.receiverAddress = receiverAddress;
         this.orderItems = orderItems;
     }
 
@@ -19,7 +22,7 @@ public class Order {
     }
 
     public String getCustomerAddress() {
-        return address;
+        return receiverAddress;
     }
 
     public List<OrderItem> getOrderItems() {
@@ -36,7 +39,7 @@ public class Order {
 
     public double calculateTotalSalesTax() {
         return getOrderItems().stream()
-                .map(orderItem -> orderItem.getTotalAmount() * .10)
+                .map(orderItem -> orderItem.getTotalAmount() * taxRate)
                 .reduce(Double::sum)
                 .orElse(0d);
     }
