@@ -9,20 +9,19 @@ package com.tw.academy.basic.$7_long_method;
  */
 public class OrderReceipt {
     private final Order order;
+    private final String orderReceiptHeader = "======Printing Orders======\n";
 
     public OrderReceipt(Order order) {
         this.order = order;
     }
 
     public String print() {
-        StringBuilder output = new StringBuilder();
-        output.append("======Printing Orders======\n");
-        output.append(order.getCustomerInformation());
-        output.append(order.printOrderItems());
-        output.append('\n');
-        output.append(printOrderSalesTax());
-        output.append(printOrderTotalAmount());
-        return output.toString();
+        return orderReceiptHeader +
+                order.getCustomerInformation() +
+                order.printOrderItems() +
+                '\n' +
+                printOrderSalesTax() +
+                printOrderTotalAmount();
     }
 
     private String printOrderSalesTax() {
